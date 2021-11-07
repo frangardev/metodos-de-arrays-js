@@ -24,10 +24,10 @@
             margin-bottom: 10px;
         }
     </style>
-    <title>ForEach</title>
+    <title>Map</title>
 </head>
 <body>
-    <h1>ForEach </h1>
+    <h1>Map</h1>
     <div id="app"></div>
     
     <script>
@@ -39,10 +39,12 @@
             {name: 'pinterest', url: 'https://pinterest.com'},
         ]
         const app = document.getElementById('app')
-        redes.forEach( red =>{
-            app.innerHTML += `<a class="button" href="${red.url}">${red.name}</a>`;
+        const redesList = redes.map( red =>{
+            return `<a class="button" href="${red.url}">${red.name}</a>`;
         })
-    </script>
+        //             El .join('') convierte el array a string
+        app.innerHTML = redesList.join('')
+    </script> 
 
 </body>
 </html>
