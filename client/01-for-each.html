@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1{
+            text-align: center;
+        }
+        #app{
+            display: flex;
+            /* justify-content: center; */
+            flex-direction: column;
+            align-items: center;
+        }
+        .button{
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            padding: 10px 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>ForEach</title>
+</head>
+<body>
+    <h1>ForEach </h1>
+    <div id="app"></div>
+    
+    <script>
+        const redes = [
+            {name: 'Twitrer', url: 'https://twitter.com'},
+            {name: 'Instagram', url: 'https://instagram.com'},
+            {name: 'linkedin', url: 'https://linkedin.com'},
+            {name: 'facebook', url: 'https://facebook.com'},
+            {name: 'pinterest', url: 'https:/pinterest.com'},
+        ]
+        const app = document.getElementById('app')
+        redes.forEach( red =>{
+            app.innerHTML += `<a class="button" href="${red.url}">${red.name}</a>`
+          
+        })
+    </script>
+
+</body>
+</html>
