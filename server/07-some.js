@@ -24,3 +24,52 @@ const proUsersAvailable = users.filter(item => item.type == "proUser").some(item
 (proUsersAvailable) 
     ? console.log("En momento uno de nuestros usuario pro se comunicaran con usted") 
     : console.log("Lo sentimos. De momento no hay nadie que pueda ayudarle");
+
+    
+
+    
+//Ejemplo de una agenda
+const dates = [
+  {
+    startDate: new Date(2021, 1, 1, 10),
+    endDate: new Date(2021, 1, 1, 11),
+    title: "Cita de trabajo",
+  },
+  {
+    startDate: new Date(2021, 1, 1, 15),
+    endDate: new Date(2021, 1, 1, 15, 30),
+    title: "Cita con mi jefe",
+  },
+  {
+    startDate: new Date(2021, 1, 1, 20),
+    endDate: new Date(2021, 1, 1, 21),
+    title: "Cena",
+  },
+];
+
+const newAppointment = {
+  startDate: new Date(2021, 1, 12, 21),
+  endDate: new Date(2021, 1, 12, 22),
+  title: "ir al gym"
+};
+
+
+//Instalamos fate-fns con npm. Esto nos permite saber si dos fechas se intercalan
+const areIntervalsOverlapping = require('date-fns/areIntervalsOverlapping') //con esto lo llamamos
+
+const isOverlap = (newDate) => {
+    return dates.some(date => {
+        return areIntervalsOverlapping(
+            {start: date.startDate, end: date.endDate},
+            {start: newDate.startDate, end: newDate.endDate},
+        )
+    })
+}
+
+if(!isOverlap(newAppointment)){
+  dates.push(newAppointment)
+  console.log('Emos agendado su cita exitosamente');
+}else{
+  console.log('Lo sentimos esa hora ya esta ocupada');
+}
+console.log(dates);
