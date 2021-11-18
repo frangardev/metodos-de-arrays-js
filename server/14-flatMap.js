@@ -11,7 +11,7 @@ console.log('Usando map y flat: ',attributesMapAndFlad);
 const attributesFatMAp = users.flatMap(item => item.attributes)
 console.log('Usando flatMap: ',attributesFatMAp);
 
-
+//Ejemplo. Necesitamos un array solo con las startDate
 const calendars = {
     primaryCalendar: [
       {
